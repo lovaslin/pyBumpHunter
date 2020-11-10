@@ -11,7 +11,7 @@ import concurrent.futures as thd
 from matplotlib import gridspec as grd
 
 
-# Funtrion that perform a scan of a given data histogram and compare it to a reference background histogram.
+# Function that performs a scan of a given data histogram and compares it to a reference background histogram.
 # This function is used by the BumpHunter class methods and is not intended to be used directly.
 def scan_hist(hist,ref,w_ar,self,ih):
             '''
@@ -874,9 +874,9 @@ class BumpHunter():
                 Hbkg = bkg * self.weights
         
         # Calculate significance for each bin
-        sig = np.empty(Hbkg.size)
+        sig = np.zeros(Hbkg.size)
         sig[(H[0]==0) & (Hbkg==0)]=1.0
-        sig[H[0]>=Hbkg] = G(H[0][H[0]>=Hbkg],Hbkg[H[0]>=Hbkg])
+        sig[H[0]>Hbkg] = G(H[0][H[0]>Hbkg],Hbkg[H[0]>Hbkg])
         sig[H[0]<Hbkg] = 1-G(H[0][H[0]<Hbkg]+1,Hbkg[H[0]<Hbkg])
         sig = norm.ppf(1-sig)
         sig[sig<0] = 0 # If negative, set it to 0
