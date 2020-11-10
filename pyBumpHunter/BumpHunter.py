@@ -902,7 +902,7 @@ class BumpHunter():
                          ls='',color='blue',label='data')
         
         plt.plot(np.full(2,Bmin),np.array([0,H[0][self.min_loc_ar[0]]]),'r--',label=('BUMP'))
-        plt.plot(np.full(2,Bmax),np.array([0,H[0][self.min_loc_ar[0]+self.min_width_ar[0]]]),'r--')
+        plt.plot(np.full(2,Bmax),np.array([0,H[0][self.min_loc_ar[0]+self.min_width_ar[0]-1]]),'r--')
         plt.legend(fontsize='large')
         plt.yscale('log')
         if self.rang!=None:
