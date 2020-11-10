@@ -263,6 +263,7 @@ class BumpHunter():
         self.signal_min = 0
         self.signal_ratio = None
         self.data_inject = []
+        self.Nsignal_measured = None
         
         return
     
@@ -1068,11 +1069,13 @@ class BumpHunter():
         D =  H[0][self.min_loc_ar[0]:self.min_loc_ar[0]+self.min_width_ar[0]].sum()
         B = Hb[self.min_loc_ar[0]:self.min_loc_ar[0]+self.min_width_ar[0]].sum()
         
+        self.Nsignal_measured = D-B
+	
         print('   min : {0:.3f}'.format(Bmin))
         print('   max : {0:.3f}'.format(Bmax))
         print('   mean : {0:.3f}'.format(Bmean))
         print('   width : {0:.3f}'.format(Bwidth))
-        print('   number of signal events : {}'.format(D-B))
+        print('   number of signal events : {}'.format(self.Nsignal_measured))
         print('   global p-value : {0:1.5f}'.format(self.global_Pval))
         print('   significance = {0:1.5f}'.format(self.significance))
         print('')
