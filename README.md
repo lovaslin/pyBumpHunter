@@ -4,6 +4,11 @@
 [![Test](https://github.com/lovaslin/pyBumpHunter/workflows/automated_testing/badge.svg)](https://github.com/lovaslin/pyBumpHunter/actions)
 [![PyPI](https://img.shields.io/pypi/v/pyBumpHunter)](https://pypi.org/project/pyBumpHunter/)
 
+
+## Important notice
+***The project has been mooved to [sckit-hep](https://github.com/scikit-hep/pyBumpHunter).***  
+***For all future fork/clone, please usse the new link.***
+
 This is a python version of the BumpHunter algorithm, see [arXiv:1101.0390, G. Choudalakis](https://arxiv.org/abs/1101.0390), designed to find localized excess (or deficit) of events in a 1D distribution.
 
 The main BumpHunter function will scan a data distribution using variable-width window sizes and calculate the p-value of data with respect to a given background distribution in each window. The minimum p-value obtained from all windows is the local p-value. To cope with the "look-elsewhere effect" a global p-value is calculated by performing background-only pseudo-experiments.
